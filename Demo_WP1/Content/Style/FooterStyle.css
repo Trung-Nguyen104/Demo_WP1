@@ -19,9 +19,33 @@ div {
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 ul {
     list-style: none;
     margin-bottom: 0px;
+=======
+    .footer_nav li:last-child {
+        margin-right: 0px;
+    }
+
+    .footer_nav li a, .cr {
+        font-size: 14px;
+        color: #51545f;
+        line-height: 30px;
+        -webkit-transition: all 300ms ease;
+        -moz-transition: all 300ms ease;
+        -ms-transition: all 300ms ease;
+        -o-transition: all 300ms ease;
+        transition: all 300ms ease;
+    }
+
+        .footer_nav li a:hover, .cr a, .cr i {
+            color: #fe4c50;
+        }
+
+.footer_social {
+    height: 130px;
+>>>>>>> parent of c30aa89 (footer boxshadow and font same header)
 }
 
 p {
