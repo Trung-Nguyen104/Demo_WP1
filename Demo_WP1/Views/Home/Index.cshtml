@@ -1,33 +1,211 @@
-﻿ @{
+﻿@{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>LQT- World of devices</title>
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
-
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="hot_sale">
+            <p id="sale_title">Giảm giá cuối tuần</p>
+            <h6 id="time_sale"><b>Thời gian:</b>@DateTime.Now.ToShortDateString()- @DateTime.Now.AddDays(2).ToShortDateString()</h6>
+        </div>
+        <ul class="devices">
+            <li>
+                <div class="each_device">
+                    <div class="device_head">
+                        <a href="" class="device_thumb">
+                            <img src="~/Content/images/ip15.png" />
+                        </a>
+                        <!--Mua ngay-->
+                    </div>
+                    <div class="device_body">
+                        <a href="" class="device_name">Iphone 15 8GB 256GB</a>
+                        <div class="device_sale_price">24.000.000đ</div>
+                        <div class="device_old_price">28.000.000đ</div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="each_device">
+                    <div class="device_head">
+                        <a href="" class="device_thumb">
+                            <img src="~/Content/images/ip15.png" />
+                        </a>
+                        <!--Mua ngay-->
+                    </div>
+                    <div class="device_body">
+                        <a href="" class="device_name">Iphone 15 8GB 256GB</a>
+                        <div class="device_sale_price">24.000.000đ</div>
+                        <div class="device_old_price">28.000.000đ</div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="each_device">
+                    <div class="device_head">
+                        <a href="" class="device_thumb">
+                            <img src="~/Content/images/ip15.png" />
+                        </a>
+                        <!--Mua ngay-->
+                    </div>
+                    <div class="device_body">
+                        <a href="" class="device_name">Iphone 15 8GB 256GB</a>
+                        <div class="device_sale_price">24.000.000đ</div>
+                        <div class="device_old_price">28.000.000đ</div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="each_device">
+                    <div class="device_head">
+                        <a href="" class="device_thumb">
+                            <img src="~/Content/images/ip15.png" />
+                        </a>
+                        <!--Mua ngay-->
+                    </div>
+                    <div class="device_body">
+                        <a href="" class="device_name">Iphone 15 8GB 256GB</a>
+                        <div class="device_sale_price">24.000.000đ</div>
+                        <div class="device_old_price">28.000.000đ</div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="each_device">
+                    <div class="device_head">
+                        <a href="" class="device_thumb">
+                            <img src="~/Content/images/ip15.png" />
+                        </a>
+                        <!--Mua ngay-->
+                    </div>
+                    <div class="device_body">
+                        <a href="" class="device_name">Iphone 15 8GB 256GB</a>
+                        <div class="device_sale_price">24.000.000đ</div>
+                        <div class="device_old_price">28.000.000đ</div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="each_device">
+                    <div class="device_head">
+                        <a href="" class="device_thumb">
+                            <img src="~/Content/images/ip15.png" />
+                        </a>
+                        <!--Mua ngay-->
+                    </div>
+                    <div class="device_body">
+                        <a href="" class="device_name">Iphone 15 8GB 256GB</a>
+                        <div class="device_sale_price">24.000.000đ</div>
+                        <div class="device_old_price">28.000.000đ</div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="each_device">
+                    <div class="device_head">
+                        <a href="" class="device_thumb">
+                            <img src="~/Content/images/ip15.png" />
+                        </a>
+                        <!--Mua ngay-->
+                    </div>
+                    <div class="device_body">
+                        <a href="" class="device_name">Iphone 15 8GB 256GB</a>
+                        <div class="device_sale_price">24.000.000đ</div>
+                        <div class="device_old_price">28.000.000đ</div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="each_device">
+                    <div class="device_head">
+                        <a href="" class="device_thumb">
+                            <img src="~/Content/images/ip15.png" />
+                        </a>
+                        <!--Mua ngay-->
+                    </div>
+                    <div class="device_body">
+                        <a href="" class="device_name">Iphone 15 8GB 256GB</a>
+                        <div class="device_sale_price">24.000.000đ</div>
+                        <div class="device_old_price">28.000.000đ</div>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
-</main>
+</body>
+</html>
+<style>
+    body {
+        font-family: 'Times New Roman';
+        font-size: 14px;
+        color: black;
+        line-height: 1.15;
+    }
+
+        body * {
+            padding: 0;
+            margin: 0;
+        }
+
+    #wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+        margin-top: 150px;
+    }
+
+    .hot_sale {
+        text-align: center;
+        margin: 20px 0px;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    #time_sale {
+        display: flex;
+        align-items: center;
+    }
+
+    #sale_title {
+        font-size: 30px;
+        color: red;
+        padding: 10px 20px;
+        text-transform: uppercase;
+        border-bottom: 3px dashed #ff0000;
+        display: inline-block;
+        font-weight: 600;
+    }
+
+    .devices {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+        .devices li {
+            flex-basis: 25%;
+            padding-left: 10px;
+            padding-right: 10px;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+        }
+
+            .devices li img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .devices li a {
+                text-decoration: none;
+            }
+
+    .device_body {
+        text-align: center;
+    }
+</style>
