@@ -728,7 +728,6 @@ header h1 a img {
 #footer {
     display: block;
     padding: 48px 0 40px;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.25);
 }
 
 .copyright {
