@@ -1,160 +1,83 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
-    <link href="~/Content/Style/HeaderStyle.css" rel="stylesheet" />
-    <link href="~/Content/Style/HeaderStyle.css" rel="stylesheet" />
-
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="~/images/favicon.ico">
+    <link rel="shortcut icon" href="~/images/favicon.ico">
+    <link rel="stylesheet" href="~/css/stuck.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/ihover.css">
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/jquery-migrate-1.1.1.js"></script>
+    <script src="~/js/script.js"></script>
+    <script src="~/js/superfish.js"></script>
+    <script src="~/js/jquery.equalheights.js"></script>
+    <script src="~/js/jquery.mobilemenu.js"></script>
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/tmStickUp.js"></script>
+    <script src="~/js/jquery.ui.totop.js"></script>
+    <script>
+$(document).ready(function(){
+ $().UItoTop({ easingType: 'easeOutQuart' });
+ $('#stuck_container').tmStickUp({});
+ });
+    </script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <header class="header trans_300">
-        <!-- Main Navigation -->
-
-        <div class="main_nav_container">
+<body class="page1" id="top">
+    <header>
+        <!--==============================
+                    Stuck menu
+        =================================-->
+        <section id="stuck_container">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 text-right">
-                        <div class="logo_container">
-                            <a href="#">colo<span>shop</span></a>
+                    <div class="grid_12">
+                        <h1>
+                            <a href="Home">
+                                <img src="~/images/logo_web.png" alt="Logo alt">
+                            </a>
+                        </h1>
+                        <div class="navigation ">
+                            <nav>
+                                <ul class="sf-menu">
+                                    <li class="current">@Html.ActionLink("Trang chủ", "Home", "Home")</li>
+                                    <li>@Html.ActionLink("Dịch vụ", "Services", "Home")</li>
+                                    <li>@Html.ActionLink("Dự án", "Portfolio", "Home")</li>
+                                    <li>@Html.ActionLink("Bài đăng", "Blog", "Home")</li>
+                                    <li>@Html.ActionLink("Liên hệ", "Contacts", "Home")</li>
+                                </ul>
+                            </nav>
+                            <div class="clear"></div>
                         </div>
-                        <nav class="navbar">
-                            <ul class="navbar_menu">
-                                <li><a href="#">home</a></li>
-                                <li><a href="#">shop</a></li>
-                                <li><a href="#">promotion</a></li>
-                                <li><a href="#">pages</a></li>
-                                <li><a href="#">blog</a></li>
-                                <li><a href="contact.html">contact</a></li>
-                            </ul>
-                            <ul class="navbar_user">
-                                <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                <li class="account">
-                                    <a href="#"><i style="font-size: 15px; margin-right: 30px" class="fa fa-user" aria-hidden="true"></i></a>
-                                    <ul class="account_selection">
-                                        <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-                                        <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
-                                    </ul>
-                                </li>
-                                <li class="checkout">
-                                    <a href="#">
-                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                        <span id="checkout_items" class="checkout_items">2</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>
-        </div>
-
+        </section>
     </header>
-
-    <div class="container body-content">
-        @RenderBody()
-    </div>
-    <hr />
-    <!-- Footer -->
-    <footer id="footer" class="footer" style="width: auto">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- About Widget -->
-                        <div class="single-widget about">
-                            <h2>Office Location</h2>
-                            <p>Maecenas sapien erat, porta non porttitor non, dignissim et enim.</p>
-                            <ul class="list">
-                                <li><i class="fa fa-map-marker"></i>Address: House 20, Sector-7, Road-5, California, US</li>
-                                <li><i class="fa fa-headphones"></i>Phone: +(123) 45678 910</li>
-                                <li><i class="fa-solid fa-envelope"></i>Email:<a href="mailto:info@youremail.com">Info@yourwebsite.com</a></li>
-                            </ul>
-                        </div>
-                        <!--/ End About Widget -->
+    @RenderBody()
+    <!--==============================
+                  footer
+    =================================-->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="grid_12">
+                    <div class="socials">
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-google-plus"></a>
+                        <a href="#" class="fa fa-youtube-play"></a>
                     </div>
-<<<<<<< HEAD
-                </div>
-                <div class="col-lg-6">
-                    <div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-                        <ul>
-                            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-square-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-skype"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-pinterest"></i></i></a></li>
-                        </ul>
-=======
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Links Widget -->
-                        <div class="single-widget links">
-                            <h2>Quick Links</h2>
-                            <ul class="list">
-                                <li><a href="about-us.html"><i class="fa fa-caret-right"></i>About Our Company</a></li>
-                                <li><a href="services.html"><i class="fa fa-caret-right"></i>Our Latest services</a></li>
-                                <li><a href="projects-masonry.html"><i class="fa fa-caret-right"></i>Our Recent Project</a></li>
-                                <li><a href="blogs-right-sidebar.html"><i class="fa fa-caret-right"></i>Latest Blog</a></li>
-                                <li><a href="contact.html"><i class="fa fa-caret-right"></i>Help Desk</a></li>
-                                <li><a href="contact.html"><i class="fa fa-caret-right"></i>Contact With Us</a></li>
-                            </ul>
-                        </div>
-                        <!--/ End Links Widget -->
->>>>>>> parent of 98402e6 (update footer and header)
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <!-- Newsletter Widget -->
-                        <div class="single-widget newsletter">
-                            <h2>Newsletter</h2>
-                            <p>consectetur adipiscing elit. Vestibulum vel sapien et lacus tempus varius. In finibus lorem vel.</p>
-                            <form>
-                                <input placeholder="Your Name" type="text">
-                                <input placeholder="your email" type="email">
-                                <button type="submit" class="button primary">Subscribe Now!</button>
-                            </form>
-                        </div>
-                        <!--/ End Newsletter Widget -->
+                    <div class="copyright">
+                        <span class="brand">Web Design</span> &copy; <span id="copyright-year"></span> | <a href="#">Privacy Policy</a> <div>Website designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a></div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--/ End Footer Top -->
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="bottom-top">
-                            <!-- Social -->
-                            <ul class="social">
-                                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-square-behance"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                            </ul>
-                            <!--/ End Social -->
-                            <!-- Copyright -->
-                            <div class="copyright">
-                                <p>&copy; 2020 All Right Reserved. Design & Development By <a target="_blank" href="http://themelamp.com">ThemeLamp.com</a>, Theme Provided By  <a target="_blank" href="https://codeglim.com">CodeGlim.com</a></p>
-                            </div>
-                            <!--/ End Copyright -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/ End Footer Bottom -->
     </footer>
-    <!--/ End footer -->
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>
-<style>
-        
-</style>

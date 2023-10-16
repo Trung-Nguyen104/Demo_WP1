@@ -160,6 +160,9 @@ section {
 .clear {
     clear: both;
 }
+#about_us{
+    margin-top:30px;
+}
 
 .clearfix::before, .clearfix::after {
     content: "";
