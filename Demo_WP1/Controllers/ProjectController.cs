@@ -1,4 +1,5 @@
 ﻿using Demo_WP1.Models;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,16 +8,12 @@ using System.Web.Mvc;
 
 namespace Demo_WP1.Controllers
 {
-    public class HomeController : Controller
+    public class ProjectController : Controller
     {
         dbProjectDataContext db = new dbProjectDataContext();
-        public ActionResult Home()
+        public ActionResult getProjects(string category)
         {
-            return View();
-        }
-        public ActionResult Category()
-        {
-            return View();
+            Listall_project = db.projects.All(c => c.category == category);
         }
     }
 }
