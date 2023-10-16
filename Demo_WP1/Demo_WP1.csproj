@@ -141,8 +141,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
-    <Content Include="Content\Style\FooterStyle.css" />
-    <Content Include="Content\Style\HeaderStyle.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\camera.css" />
     <Content Include="css\font-awesome.css" />
