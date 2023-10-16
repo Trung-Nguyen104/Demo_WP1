@@ -57,7 +57,8 @@ input, textarea {
 
 
 img {
-    max-width:90%;
+    height: auto;
+    width: 100px;
 }
 
 
@@ -301,7 +302,6 @@ header {
     display: block;
     position: relative;
     z-index: 800;
-    padding-top: 28px;
     border-bottom: 1px solid #414141;
 }
 
@@ -332,11 +332,11 @@ header h1 a img {
 /****Content****/
 
 .content {
-    padding-bottom: 77px;
+    padding-bottom: 70px;
 }
 
 .page1 .content {
-    padding-top: 1px;
+    padding-top: 0px;
 }
 
 .st1 {

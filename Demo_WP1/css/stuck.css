@@ -6,7 +6,6 @@
 		transition: all 0.4s ease;
 		z-index: 999;
 		background-color: #fff;
-		padding: 10px 0 33px;
 }
 
 .isStuck {
