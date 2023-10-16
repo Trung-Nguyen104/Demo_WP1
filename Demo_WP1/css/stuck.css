@@ -1,12 +1,12 @@
 #stuck_container {
-		-webkit-transition: all 0.4s ease;
-		-moz-transition: all 0.4s ease;
-		-ms-transition: all 0.4s ease;
-		-o-transition: all 0.4s ease;
-		transition: all 0.4s ease;
-		z-index: 999;
-		background-color: #fff;
-		padding: 10px 0 33px;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-ms-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	z-index: 999;
+	background-color: #fff;
+	box-shadow: 0 0 16px rgba(0, 0, 0, 0.25);
 }
 
 .isStuck {
@@ -20,7 +20,6 @@
 
 .isStuck .menuBox {
 	margin: 0;
-
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
 	-ms-transition: all 0.4s ease;
