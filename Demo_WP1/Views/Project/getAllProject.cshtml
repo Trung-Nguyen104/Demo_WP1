@@ -29,6 +29,9 @@
                 <td class="content">@project.category</td>
                 <td class="content">@project.price</td>
                 <td class="content">@project.publish_date</td>
+                <td class="content">
+                    @Html.ActionLink("Read More...", "Detail", new { id = @project.id })
+                </td>
                 <td class="content"></td>
             </tr>
             i++;
