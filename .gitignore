@@ -376,3 +376,6 @@ FodyWeavers.xsd
 /Demo_WP1/Models/dbProject.designer.cs
 =======
 >>>>>>> e4c03749ae5409baea040e29dfd9bad2f6277dc4
+/Demo_WP1/Models/dbProject.dbml
+/Demo_WP1/Models/dbProject.dbml.layout
+/Demo_WP1/Models/dbProject.designer.cs
