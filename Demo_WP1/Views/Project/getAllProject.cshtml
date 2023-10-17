@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "getAllProject";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 1;
+}
+
+<h2>All Projects</h2>
+
+<div>
+    <table class="all_projects">
+        <tr class="row_title">
+            <td class="title"></td>
+            <td class="title">Name</td>
+            <td class="title">Layout</td>
+            <td class="title">Description</td>
+            <td class="title">Category</td>
+            <td class="title">Price</td>
+            <td class="title">Publish date</td>
+            <td class="title"></td>
+        </tr>
+        
+        @foreach (var project in Model)
+        {
+            <tr class="row_content">
+                <td class="content">@i</td>
+                <td class="content">@project.name</td>
+                <td class="content"></td>
+                <td class="content">@project.description</td>
+                <td class="content">@project.category</td>
+                <td class="content">@project.price</td>
+                <td class="content">@project.publish_date</td>
+                <td class="content"></td>
+            </tr>
+            i++;
+        }
+    </table>
+</div>
+

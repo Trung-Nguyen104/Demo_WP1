@@ -11,9 +11,10 @@ namespace Demo_WP1.Controllers
     public class ProjectController : Controller
     {
         dbProjectDataContext db = new dbProjectDataContext();
-        public ActionResult getProjects(string category)
+        public ActionResult getAllProject(string category)
         {
-            Listall_project = db.projects.All(c => c.category == category);
+            List<project> all_projects = db.projects.Where(p => p.category == category).ToList();
+            return View(all_projects);
         }
     }
 }
