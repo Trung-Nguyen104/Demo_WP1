@@ -29,7 +29,11 @@
                 <td class="content">@project.category</td>
                 <td class="content">@project.price</td>
                 <td class="content">@project.publish_date</td>
-                <td class="content"></td>
+                <td class="content">
+                    <a href="@Url.Action("Detail", "Project", new {id = project.id})">
+                        <button>More detail...</button>
+                    </a>
+                </td>
             </tr>
             i++;
         }
