@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo_WP1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,22 +9,13 @@ namespace Demo_WP1.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        dbProjectDataContext db = new dbProjectDataContext();
+        public ActionResult Home()
         {
             return View();
         }
-
-        public ActionResult About()
+        public ActionResult Category()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
