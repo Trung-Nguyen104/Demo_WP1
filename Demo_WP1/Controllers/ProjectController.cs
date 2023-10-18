@@ -16,7 +16,8 @@ namespace Demo_WP1.Controllers
             List<project> all_projects = db.projects.Where(p => p.category == category).ToList();
             return View(all_projects);
         }
-        public ActionResult Detail(int id) {
+        public ActionResult Detail(int id) 
+        {
             var project = db.projects.First(p => p.id == id);
             return View(project);
          }

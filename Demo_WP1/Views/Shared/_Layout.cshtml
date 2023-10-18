@@ -26,7 +26,17 @@
                                     <li class="current">@Html.ActionLink("Home", "Home", "Home")</li>
                                     <li>@Html.ActionLink("Category", "Category", "Home")</li>
                                     <li>@Html.ActionLink("Contacts", "Contacts", "Home")</li>
-                                    <li><a href=""><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                                    @{
+                                        var customer = Session["Customer"] as Demo_WP1.Models.customer;
+                                    }
+                                    @if (Session["Customer"] != null)
+                                    {
+                                        <li><a href="@Url.Action("Account_Info", "User", new {id = customer.id})"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("Login","User")"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                                    }
                                     <li><a><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                                 </ul>
                             </nav>
@@ -88,3 +98,4 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
