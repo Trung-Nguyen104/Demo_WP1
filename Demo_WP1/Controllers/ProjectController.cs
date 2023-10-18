@@ -18,6 +18,7 @@ namespace Demo_WP1.Controllers
         }
         public ActionResult Detail(int id) {
             var project = db.projects.First(p => p.id == id);
+            ViewBag.category = project.category;
             return View(project);
          }
     }

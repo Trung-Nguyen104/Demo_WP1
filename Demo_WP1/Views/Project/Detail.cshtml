@@ -1,4 +1,4 @@
-﻿@model Demo_WP1.Controllers.ProjectController
+﻿@model Demo_WP1.Models.project
 
 @{
     ViewBag.Title = "Detail";
@@ -12,60 +12,103 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.name)
+            @Html.DisplayNameFor(Model => Model.name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.name)
+            @Html.DisplayFor(Model => Model.name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.image)
+            @Html.DisplayNameFor(Model => Model.image)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.image)
+            @Html.DisplayFor(Model => Model.image)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.description)
+            @Html.DisplayNameFor(Model => Model.description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.description)
+            @Html.DisplayFor(Model => Model.description)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.category)
+            @Html.DisplayNameFor(Model => Model.category)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.category)
+            @Html.DisplayFor(Model => Model.category)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.price)
+            @Html.DisplayNameFor(Model => Model.price)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.price)
+            @Html.DisplayFor(Model => Model.price)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.publish_date)
+            @Html.DisplayNameFor(Model => Model.publish_date)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.publish_date)
+            @Html.DisplayFor(Model => Model.publish_date)
         </dd>
 
     </dl>
 </div>
 <div>
-<p>
-        <a href="@Url.Action("getAllProject", "Project", Model.category)">
+    <p>
+        <a href="@Url.Action("getAllProject", "Project", new {category = @ViewBag.category})">
             <p>Back</p>   
         </a>
-</p>
-    <p>@Html.ActionLink("Add to Cart", "AddCart", "Cart")</p>
+    </p>
+    <p>
+        <a class="btn btn-success" href="@Url.Action("AddCart", "Cart", new { @id = Model.id, @strURL = Request.Url.ToString() })">Buy</a>
+    </p>
 </div>
+
+<style>
+   
+    h2 {
+        color: #333; /* Màu chữ */
+        font-size: 24px; /* Kích thước chữ */
+    }
+
+    /* Tùy chỉnh giao diện cho .dl-horizontal (Danh sách ngang) */
+    .dl-horizontal {
+        margin: 20px 0; /* Khoảng cách với các phần khác */
+        font-size: 16px;
+    }
+
+    /* Tùy chỉnh giao diện cho các phần tử dt (danh mục) */
+    dl-horizontal dt {
+        font-weight: bold; /* Đậm */
+    }
+
+    /* Tùy chỉnh giao diện cho các phần tử dd (giá trị) */
+    dl-horizontal dd {
+        margin-left: 0; /* Loại bỏ lề trái để căn chỉnh giá trị */
+    }
+
+    /* Tùy chỉnh giao diện cho phần "Back" */
+    a {
+        text-decoration: none; /* Loại bỏ gạch chân */
+        background-color: #007bff; /* Màu nền */
+        color: #fff; /* Màu chữ */
+        padding: 5px 10px; /* Khoảng cách trong nút */
+        border-radius: 5px; /* Bo tròn các góc */
+        display: inline-block; /* Hiển thị dưới dạng inline-block để căn giữa */
+        margin-top: 10px; /* Khoảng cách với phần trên */
+    }
+
+    /* Tùy chỉnh giao diện cho phần "Add to Cart" */
+    p {
+        margin-top: 10px; /* Khoảng cách với phần trên */
+    }
+
+</style>
