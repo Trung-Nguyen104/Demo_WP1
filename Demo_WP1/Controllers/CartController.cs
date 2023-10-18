@@ -85,7 +85,7 @@ namespace Demo_WP1.Controllers
             project p = new project();
             List<Cart> listCart = getCart();
             b.customer_id = c.id;
-            b.project_id = p.id;
+            b.project_id = 1;
             b.date = DateTime.Now;
             db.buys.InsertOnSubmit(b);
             db.SubmitChanges();
@@ -114,7 +114,7 @@ namespace Demo_WP1.Controllers
             customer = customer.Replace("{{Phone}}", c.phone);
             customer = customer.Replace("{{DiaChi}}", c.address);
             customer = customer.Replace("{{Email}}", c.email);
-            Demo_WP1.Common.Common.SendMail("BuyProject", "Project: " + b.id.ToString(), customer, c.email);
+            Demo_WP1.Common.Common.SendMail("BuyProject", "Project: " + b.id.ToString(), customer, "loc2462003@gmail.com");
             Session["Cart"] = null;
             return RedirectToAction("ConfirmOrder", "Cart");
         }
