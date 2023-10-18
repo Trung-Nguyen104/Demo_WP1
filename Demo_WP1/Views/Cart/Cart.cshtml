@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Demo_WP1.Models.Cart>
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Your Cart</h2>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.project_id)</th>
+        <th>@Html.DisplayNameFor(model => model.project_name)</th>
+        <th>@Html.DisplayNameFor(model => model.category)</th>
+        <th>@Html.DisplayNameFor(model => model.price)</th>
+        <th>@Html.DisplayNameFor(model => model.publish_date)</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.project_id</th>
+            <th>@item.project_name</th>
+            <th>@item.category</th>
+            <th>@item.price</th>
+            <th>@item.publish_date</th>
+            <td>
+                @Html.ActionLink("Delete", "CartDelete", new { id = item.project_id })
+            </td>
+        </tr>
+    }
+    <tr style="font-weight:bold; text-align:left; color:red">
+        <td colspan="2"> Number project: @ViewBag.sumProjectQuantity </td>
+    </tr>
+    <tr style="font-weight:bold; color:blue; text-align:right ">
+        <td colspan="5">
+            @Html.ActionLink("Clear Register", "AllCartDelete")
+        </td>
+    </tr>
+    <tr style="font-weight:bold; color:yellow; text-align:right ">
+        <td colspan="5">
+            @Html.ActionLink("Save Register", "PlaceOrder", "Cart")
+        </td>
+    </tr>
+</table>
