@@ -3,14 +3,14 @@
 	z-index: 999;
 	position: relative;
 	float: right;
-	margin: 38px 0px;	
+	margin: 37.5px 0px;	
 }
 
 .select-menu {
 	display: none !important;
 }
 
-.navigation .sf-menu {
+.navigation .menu {
 	z-index: 990;
 	text-align: left;
 	position: relative;
@@ -22,22 +22,22 @@ nav {
 	 font-family: 'Pathway Gothic One', sans-serif;
 }
 
-.sf-menu ul {
+.menu ul {
 	position:absolute;
 	top:-999px; 
 	display:none;
 }
 
-.sf-menu>li>ul>li {
+.menu>li>ul>li {
   	float: none;
   	position: static;
 }
 
-.sf-menu>li+li {
+.menu>li+li {
 	margin-left: 36px;
 }
 
-.sf-menu>li {
+.menu>li {
 	position: relative;
 	font-size: 24px;
 	float: left;
@@ -48,20 +48,21 @@ nav {
     box-sizing: border-box;
 }
 
-.sf-menu>li>a{
+.menu>li>a{
 	position: relative;
-	color: #5e5c5c; 
+	color: #fff; 
+	font-size:25px;
 	font-weight: 300;
 	display: block;
 	text-align: center;
 }
 
-.sf-menu>li.sfHover>a, .sf-menu>li.current>a, .sf-menu>li>a:hover {
+.menu>li.sfHover>a, .menu>li.current>a, .menu>li>a:hover {
 	color: #383636;
 	text-decoration: underline;
 }
  
-.sf-menu>li>ul>li>a.sf-with-ul:after {
+.menu>li>ul>li>a.sf-with-ul:after {
 	content: '';
     font-family: 'FontAwesome';
 	position: absolute;
@@ -76,7 +77,7 @@ nav {
 	z-index: 999;
 }
 
-.sf-menu>li>a.sf-with-ul:after {	
+.menu>li>a.sf-with-ul:after {	
 	content: '';
 	position: absolute;
 	width: 5px;
@@ -95,7 +96,7 @@ nav {
 
 
 /*================================>> 2 Level <<========================================*/
-.sf-menu>li ul {
+.menu>li ul {
 	left: 0;
 	z-index: 999; 
 	width: 100%;
@@ -107,7 +108,7 @@ nav {
 
 
 
-.sf-menu li ul li {
+.menu li ul li {
 	position: relative;
 	padding-top: 2px;
 	float: none !important;
@@ -115,7 +116,7 @@ nav {
 }
 
 
-.sf-menu li ul li a{
+.menu li ul li a{
 	position: static;
 	font-size: 11px;
 	line-height: 30px;
@@ -127,13 +128,13 @@ nav {
 }
 
 
-.sf-menu li li a:hover, 
-.sf-menu li.sfHover li.sfHover>a {  
+.menu li li a:hover, 
+.menu li.sfHover li.sfHover>a {  
 	background-color: #120d0c;
 }
 
 /*================================>> 3 Level <<========================================*/
-.sf-menu>li ul li ul{
+.menu>li ul li ul{
 	position: absolute;
 	left: 100%;
 	width: 157px;
@@ -142,11 +143,11 @@ nav {
 
 
 
-.sf-menu li ul ul li a {
+.menu li ul ul li a {
 	display: block;
 }
 
-.sf-menu li ul ul li a:hover {
+.menu li ul ul li a:hover {
 	background-color: #191210;
 }
 
@@ -156,7 +157,7 @@ nav {
 
 @media only screen and (max-width: 995px) {
 
-		.sf-menu>li>a {
+		.menu>li>a {
 		}
 }
 
@@ -190,7 +191,7 @@ nav {
   	border: none;
   }
 
-	.sf-menu{display:none !important; float: none;}
+	.menu{display:none !important; float: none;}
 
 	.select-menu {
 		font:12px/15px Arial, Helvetica, sans-serif;

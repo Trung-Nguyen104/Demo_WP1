@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/stuck.css">
     <link rel="stylesheet" href="~/css/style.css">
     <link rel="stylesheet" href="~/css/ihover.css">
+    <title>@Session["PageTitle"]</title>
 </head>
 <body class="page1" id="top">
     <header>
@@ -20,27 +21,46 @@
                                 <img src="~/images/logo_web.png" alt="Logo alt">
                             </a>
                         </h1>
-                        <div class="navigation ">
+                        <div class="navigation">
                             <nav>
-                                <ul class="sf-menu">
-                                    <li class="current">@Html.ActionLink("Home", "Home", "Home")</li>
-                                    <li>@Html.ActionLink("Category", "Category", "Home")</li>
-                                    <li>@Html.ActionLink("Contacts", "Contacts", "Home")</li>
+                                <ul class="menu">
+                                    <li id="home">@Html.ActionLink("Home", "Home", "Home")</li>
+                                    <li id="category">
+                                        @Html.ActionLink("Category", "Category", "Home")
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="">Web</a>
+                                            </li>
+                                            <li>
+                                                <a href="">App</a>
+                                            </li>
+                                            <li>
+                                                <a href="">Game</a>
+                                            </li>
+                                            <li>
+                                                <a href="">Database</a>
+                                            </li>
+                                        </ul>
+                                    </li>   
+                                    <li id="contacts">@Html.ActionLink("Contacts", "Contacts", "Home")</li>
+                                    <li id="cart">
+                                        <a href="@Url.Action("CartPartial", "Cart")">
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
                                     @{
                                         var customer = Session["Customer"] as Demo_WP1.Models.customer;
                                     }
                                     @if (Session["Customer"] != null)
                                     {
-                                        <li><a href="@Url.Action("Account_Info", "User", new {id = customer.id})"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                        <li id="user"><a href="@Url.Action("Account_Info", "User", new {id = customer.id})"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                                     }
                                     else
                                     {
-                                        <li><a href="@Url.Action("Login","User")"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                                        <li id="no_user"><a href="@Url.Action("Login","User")"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
                                     }
-                                    <li><a href="@Url.Action("CartPartial", "Cart")"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                                 </ul>
                             </nav>
-                            <div class="clear"></div>
                         </div>
                     </div>
                 </div>
@@ -79,6 +99,7 @@
 
 
     <script src="~/js/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="~/js/jquery-migrate-1.1.1.js"></script>
     <script src="~/js/script.js"></script>
     <script src="~/js/superfish.js"></script>
@@ -91,6 +112,12 @@
         $(document).ready(function () {
             $().UItoTop({ easingType: 'easeOutQuart' });
             $('#stuck_container').tmStickUp({});
+            $('.menu li').click(function () {
+                // Loại bỏ lớp "active" từ tất cả các mục
+                $('.menu li').removeClass('active');
+                // Thêm lớp "active" cho mục được chọn
+                $(this).addClass('active');
+            });
         });
     </script>
     @Scripts.Render("~/bundles/jquery")
@@ -99,3 +126,12 @@
 </body>
 </html>
 
+<style>
+   .menu li#category{
+       position:relative;
+   }
+   .menu li#category ul.sub-menu{
+       position:absolute;
+       list-style:none;
+   }
+</style>

@@ -18,7 +18,7 @@ $(function(){
   var regM = /ipod|ipad|iphone/gi,
    result = ua.match(regM)
   if(!result) {
-   $('.sf-menu li').each(function(){
+   $('.menu li').each(function(){
     if($(">ul", this)[0]){
      $(">a", this).toggle(
       function(){
@@ -48,5 +48,5 @@ var currentYear = (new Date).getFullYear();
   });
 
   $(function(){
-  $('.sf-menu').superfish({autoArrows: true})
+  $('.menu').superfish({autoArrows: true})
 })

@@ -51,7 +51,7 @@ namespace Demo_WP1.Controllers
         public ActionResult CartPartial()
         {
             ViewBag.sumProjectQuantity = sumProjectQuantity();
-            return PartialView();
+            return RedirectToAction("Cart", "Cart");
         }
         public ActionResult CartDelete(int id)
         {
@@ -106,15 +106,16 @@ namespace Demo_WP1.Controllers
             }
             db.SubmitChanges();
             //Send mail
-            string customer = System.IO.File.ReadAllText(Server.MapPath("~/Content/templates/send2.html"));
-            customer = customer.Replace("{{MaDon}}", b.id.ToString());
-            customer = customer.Replace("{{TenKhachHang}}", c.full_name);
-            customer = customer.Replace("{{NgayDatHang}}", b.date.ToString());
-            customer = customer.Replace("{{SanPham}}", strProject);
-            customer = customer.Replace("{{Phone}}", c.phone);
-            customer = customer.Replace("{{DiaChi}}", c.address);
-            customer = customer.Replace("{{Email}}", c.email);
-            Demo_WP1.Common.Common.SendMail("BuyProject", "Project: " + b.id.ToString(), customer, "loc2462003@gmail.com");
+            string sendMail = System.IO.File.ReadAllText(Server.MapPath("~/Content/templates/send2.html"));
+            sendMail = sendMail.Replace("{{MaDon}}", b.id.ToString());
+            sendMail = sendMail.Replace("{{TenKhachHang}}", c.full_name);
+            sendMail = sendMail.Replace("{{NgayDatHang}}", b.date.ToString());
+            sendMail = sendMail.Replace("{{SanPham}}", strProject);
+            sendMail = sendMail.Replace("{{Phone}}", c.phone);
+            sendMail = sendMail.Replace("{{DiaChi}}", c.address);
+            sendMail = sendMail.Replace("{{Email}}", c.email);
+            sendMail = sendMail.Replace("{{TongTien}}", totalMoney.ToString());
+            Demo_WP1.Common.Common.SendMail("Thông báo đơn hàng", "Từ: LQT", sendMail, c.email);
             Session["Cart"] = null;
             return RedirectToAction("ConfirmOrder", "Cart");
         }

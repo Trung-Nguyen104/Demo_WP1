@@ -58,7 +58,7 @@
         </h1>  
           <div class="navigation ">
             <nav>
-              <ul class="sf-menu">
+              <ul class="menu">
                <li><a href="index.html">About</a></li>
                <li><a href="index-1.html">Services</a></li>
                <li><a href="index-2.html">Portfolio</a></li>

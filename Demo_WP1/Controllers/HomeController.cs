@@ -13,13 +13,16 @@ namespace Demo_WP1.Controllers
         dbProjectDataContext db = new dbProjectDataContext();
         public ActionResult Home()
         {
+            Session["PageTitle"] = "Home";
             return View();
         }
         public ActionResult Category()
         {
+            Session["PageTitle"] = "Category";
             return View();
         }
-        public ActionResult Contacts() { 
+        public ActionResult Contacts() {
+            Session["PageTitle"] = "Contacts";
             return View();
         }   
     }
