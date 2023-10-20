@@ -21,13 +21,6 @@ nav {
 	 padding: 0;
 	 font-family: 'Pathway Gothic One', sans-serif;
 }
-
-.menu ul {
-	position:absolute;
-	top:-999px; 
-	display:none;
-}
-
 .menu>li>ul>li {
   	float: none;
   	position: static;
@@ -54,12 +47,15 @@ nav {
 	font-size:25px;
 	font-weight: 300;
 	display: block;
+	padding:10px;
+	border-radius:8px;
 	text-align: center;
 }
 
-.menu>li.sfHover>a, .menu>li.current>a, .menu>li>a:hover {
-	color: #383636;
-	text-decoration: underline;
+
+.menu > li.sfHover > a, .menu > li.current > a, .menu > li > a:hover {
+	color: #000000;
+	background-color: white;
 }
  
 .menu>li>ul>li>a.sf-with-ul:after {
@@ -96,21 +92,21 @@ nav {
 
 
 /*================================>> 2 Level <<========================================*/
-.menu>li ul {
-	left: 0;
-	z-index: 999; 
-	width: 100%;
-	background-color: #343434;
-	top: 55px;
-	padding-bottom: 1px;
-	background: #1f1714 url(../images/sub_bg.png) 0 0 repeat-x;
-}
+	.menu > li ul {
+		left: 0;
+		box-shadow: 0 0 2px #202124;
+		z-index: 999;
+		width: 100%;
+		border-radius: 8px;
+		background-color: #343434;
+		top: 45px;
+		background: #fff url(../images/sub_bg.png) 0 0 repeat-x;
+	}
 
 
 
 .menu li ul li {
 	position: relative;
-	padding-top: 2px;
 	float: none !important;
 	background: url(../images/sub_sep.png) 0 0 repeat-x;
 }
@@ -118,19 +114,19 @@ nav {
 
 .menu li ul li a{
 	position: static;
-	font-size: 11px;
+	font-size: 13px;
 	line-height: 30px;
-	padding: 5px 20px 3px;
+	padding: 2px 0px;
 	display: block;
 	z-index: 999;
-	color: #fff;	
+	color: #202124;
+	text-align:center;
 	font-weight: 300;
 }
 
-
 .menu li li a:hover, 
 .menu li.sfHover li.sfHover>a {  
-	background-color: #120d0c;
+	background-color: #3c4043;
 }
 
 /*================================>> 3 Level <<========================================*/

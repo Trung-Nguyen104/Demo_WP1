@@ -26,19 +26,38 @@
                                 <ul class="menu">
                                     <li id="home">@Html.ActionLink("Home", "Home", "Home")</li>
                                     <li id="category">
-                                        @Html.ActionLink("Category", "Category", "Home")
+                                        <a>Category</a>
+                                        <script>
+                                            const category = document.getElementById("category");
+                                            const subMenu = category.querySelector(".sub-menu");
+
+                                            // Xử lý sự kiện click trên phần tử category
+                                            category.addEventListener("click", (event) => {
+                                                if (event.target === category) {
+                                                    category.classList.toggle("active");
+                                                    if (category.classList.contains("active")) {
+                                                        subMenu.style.display = "block";
+                                                        subMenu.style.opacity = 1;
+                                                    } else {
+                                                        subMenu.style.display = "none";
+                                                        subMenu.style.opacity = 0;
+                                                    }
+                                                }
+                                            });
+
+                                        </script>
                                         <ul class="sub-menu">
                                             <li>
-                                                <a href="">Web</a>
+                                                <a id="web" href="">Web</a>
                                             </li>
                                             <li>
-                                                <a href="">App</a>
+                                                <a id="app" href="">App</a>
                                             </li>
                                             <li>
-                                                <a href="">Game</a>
+                                                <a id="game" href="">Game</a>
                                             </li>
-                                            <li>
-                                                <a href="">Database</a>
+                                            <li >
+                                                <a id="database" href="">Database</a>
                                             </li>
                                         </ul>
                                     </li>   
@@ -112,12 +131,6 @@
         $(document).ready(function () {
             $().UItoTop({ easingType: 'easeOutQuart' });
             $('#stuck_container').tmStickUp({});
-            $('.menu li').click(function () {
-                // Loại bỏ lớp "active" từ tất cả các mục
-                $('.menu li').removeClass('active');
-                // Thêm lớp "active" cho mục được chọn
-                $(this).addClass('active');
-            });
         });
     </script>
     @Scripts.Render("~/bundles/jquery")
@@ -130,8 +143,30 @@
    .menu li#category{
        position:relative;
    }
-   .menu li#category ul.sub-menu{
-       position:absolute;
-       list-style:none;
-   }
+    .sub-menu {
+        position: absolute;
+        list-style: none;
+        display: none;
+        opacity: 0;
+    }
+    #category:active .sub-menu {
+        display: block;
+        opacity: 1;
+    }
+        .sub-menu li:hover a {
+            color: #fff;
+        }
+    #web:hover {
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+        color: white;
+    }
+    #app:hover, #game:hover {
+        color:white;
+    }
+    #database:hover {
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        color: white;
+    }
 </style>
