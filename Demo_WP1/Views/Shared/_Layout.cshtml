@@ -27,37 +27,18 @@
                                     <li id="home">@Html.ActionLink("Home", "Home", "Home")</li>
                                     <li id="category">
                                         <a>Category</a>
-                                        <script>
-                                            const category = document.getElementById("category");
-                                            const subMenu = category.querySelector(".sub-menu");
-
-                                            // Xử lý sự kiện click trên phần tử category
-                                            category.addEventListener("click", (event) => {
-                                                if (event.target === category) {
-                                                    category.classList.toggle("active");
-                                                    if (category.classList.contains("active")) {
-                                                        subMenu.style.display = "block";
-                                                        subMenu.style.opacity = 1;
-                                                    } else {
-                                                        subMenu.style.display = "none";
-                                                        subMenu.style.opacity = 0;
-                                                    }
-                                                }
-                                            });
-
-                                        </script>
                                         <ul class="sub-menu">
                                             <li>
-                                                <a id="web" href="">Web</a>
+                                                <a id="web" href="@Url.Action("getAllProject", "Project", new {category = "Web"})">Web</a>
                                             </li>
                                             <li>
-                                                <a id="app" href="">App</a>
+                                                <a id="app" href="@Url.Action("getAllProject", "Project", new {category = "App"})">App</a>
                                             </li>
                                             <li>
-                                                <a id="game" href="">Game</a>
+                                                <a id="game" href="@Url.Action("getAllProject", "Project", new {category = "Game"})">Game</a>
                                             </li>
                                             <li >
-                                                <a id="database" href="">Database</a>
+                                                <a id="database" href="@Url.Action("getAllProject", "Project", new {category = "Database"})">Database</a>
                                             </li>
                                         </ul>
                                     </li>   
@@ -146,7 +127,7 @@
     .sub-menu {
         position: absolute;
         list-style: none;
-        display: none;
+        display: block;
         opacity: 0;
     }
     #category:active .sub-menu {

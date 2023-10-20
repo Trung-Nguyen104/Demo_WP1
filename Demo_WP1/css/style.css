@@ -326,6 +326,7 @@ header h1 a {
 
 header h1 a img {
     display: block;
+    margin: 10px 0px;
 }
 
 
