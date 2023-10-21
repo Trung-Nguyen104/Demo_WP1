@@ -145,8 +145,7 @@ table {
   margin-right: 0px;
 }
 .row {
-  margin-left: -30px;
-  *zoom: 1;
+    
 }
 .row:before,
 .row:after {
@@ -160,13 +159,12 @@ table {
 [class*="grid_"] {
   float: left;
   min-height: 1px;
-  margin-left: 30px;
 }
 .container {
-  width: 1170px;
+  width: 65vw;
 }
 .grid_12 {
-  width: 1170px;
+  width: 65vw;
 }
 .grid_11 {
   width: 1070px;
@@ -184,16 +182,17 @@ table {
   width: 670px;
 }
 .grid_6 {
-  width: 570px;
+  width: 32.5vw;
+  margin-top:30px;
 }
 .grid_5 {
-  width: 470px;
+  width: 16.25vw;
 }
 .grid_4 {
   width: 370px;
 }
 .grid_3 {
-  width: 270px;
+  width: 16.25vw;
 }
 .grid_2 {
   width: 170px;

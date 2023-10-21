@@ -43,7 +43,6 @@ namespace Demo_WP1.Controllers
                     c.password = password;
                     c.email = email;
                     c.phone = phone;
-                    c.address = address;
                     db.customers.InsertOnSubmit(c);
                     db.SubmitChanges();
                     Session["email"] = email;
@@ -89,6 +88,24 @@ namespace Demo_WP1.Controllers
         {
             var customer = db.customers.First(c => c.id == id);
             return View(customer);
+        }
+        [HttpGet]
+        public ActionResult product_history(int id)
+        {
+            List<CustomerHistory> htr1 = db.buys.Join
+                (
+                    db.projects, t1 => t1.project_id, t2 => t2.id, (t1, t2) =>
+                    new CustomerHistory
+                    {
+                        id = t1.customer_id,
+                        cate = t2.category,
+                        product_name = t2.name,
+                        price = t2.price,
+                        order_date = t1.date,
+                        image = t2.image,
+                        status = t1.status
+                    }).Where(p => p.id == id).ToList();
+            return View(htr1);
         }
     }
 

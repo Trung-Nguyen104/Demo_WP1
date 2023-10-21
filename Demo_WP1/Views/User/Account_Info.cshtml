@@ -1,63 +1,71 @@
-﻿@model Demo_WP1.Models.customer
+﻿@model Demo.Models.customer
 
 @{
-    ViewBag.Title = "Account_Info";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Information";
+    Layout = "~/Views/Shared/_Header_login.cshtml";
 }
 
-<h2>Account_Info</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<section class="content">
+    <div class="container">
+        <h1 class="text-center">Personal Information</h1>
+        <hr />
+        <div class="row">
+            @Html.ValidationSummary(false, "", new { @class = "validation-summary-errors" })
 
-<table>
-    <tr>
-        <td>
-            @Html.DisplayNameFor(model => model.full_name)
-        </td>
+            <div class="col-6">
+                <strong>Name</strong>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.full_name, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
 
-        <td>
-            @Html.DisplayFor(model => model.full_name)
-        </td>
-    </tr>
+            <div class="col-6">
+                <strong>Password</strong>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
 
-    <tr>
-        <td>
-            @Html.DisplayNameFor(model => model.password)
-        </td>
 
-        <td>
-            @Html.DisplayFor(model => model.password)
-        </td>
-    </tr>
+            <div class="col-6">
+                <strong>Email</strong>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
 
-    <tr>
-        <td>
-            @Html.DisplayNameFor(model => model.email)
-        </td>
+            <div class="col-6">
+                <strong>Phone</strong>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
 
-        <td>
-            @Html.DisplayFor(model => model.email)
-        </td>
-    </tr>
+            <div class="row">
+                <input type="submit" value="Save" class=" ml-4" />
+                <p class="mt-2 ml-4"><a href="@Url.Action(" Home", "Home" )" class="">Back to Home</a></p>
+            </div>
 
-    <tr>
-        <td>
-            @Html.DisplayNameFor(model => model.phone)
-        </td>
+        </div>
+    </div>
+</section>
+}
 
-        <td>
-            @Html.DisplayFor(model => model.phone)
-        </td>
-    </tr>
 
-    <tr>
-        <td>
-            @Html.DisplayNameFor(model => model.address)
-        </td>
 
-        <td>
-            @Html.DisplayFor(model => model.address)
-        </td>
-    </tr>
-</table>
-<p>
 
-</p>
+<style>
+    .validation-summary-errors ul {
+        list-style: none; /* Loại bỏ dấu chấm ở đầu danh sách lỗi */
+        padding-left: 0; /* Loại bỏ khoảng cách bên trái */
+    }
+
+    .validation-summary-errors {
+        color: #ff0000; /* Màu đỏ cho chữ */
+        text-align: center;
+        font-size: large;
+    }
+</style>

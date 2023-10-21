@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/style.css">
     <link rel="stylesheet" href="~/css/ihover.css">
     <title>@Session["PageTitle"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="page1" id="top">
     <header>
@@ -18,7 +19,7 @@
                     <div class="grid_12">
                         <h1>
                             <a href="Home">
-                                <img src="~/images/logo_web.png" alt="Logo alt">
+                                <img src="~/images/logo.png" alt="Logo alt">
                             </a>
                         </h1>
                         <div class="navigation">
@@ -26,7 +27,7 @@
                                 <ul class="menu">
                                     <li id="home">@Html.ActionLink("Home", "Home", "Home")</li>
                                     <li id="category">
-                                        <a>Category</a>
+                                        <a href="">Category</a>
                                         <ul class="sub-menu">
                                             <li>
                                                 <a id="web" href="@Url.Action("getAllProject", "Project", new {category = "Web"})">Web</a>
@@ -37,12 +38,21 @@
                                             <li>
                                                 <a id="game" href="@Url.Action("getAllProject", "Project", new {category = "Game"})">Game</a>
                                             </li>
-                                            <li >
+                                            <li>
                                                 <a id="database" href="@Url.Action("getAllProject", "Project", new {category = "Database"})">Database</a>
                                             </li>
                                         </ul>
-                                    </li>   
+                                    </li>
                                     <li id="contacts">@Html.ActionLink("Contacts", "Contacts", "Home")</li>
+                                    <li id="search">
+                                        @using (Html.BeginForm("getAllProject", "Project", FormMethod.Get, new { @class = "form-inline" }))
+                                        {
+                                            <div class="row">
+                                                <input type="text" id="search_text" name="searchString" value="" placeholder=" Enter keyword ..." />
+                                                <button type="submit" style=" color: white; font-weight: 700; background: #82B440; width: 70px; height: 30px; border: none;">Search</button>
+                                            </div>
+                                        }
+                                    </li>
                                     <li id="cart">
                                         <a href="@Url.Action("CartPartial", "Cart")">
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -53,7 +63,19 @@
                                     }
                                     @if (Session["Customer"] != null)
                                     {
-                                        <li id="user"><a href="@Url.Action("Account_Info", "User", new {id = customer.id})"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                       <li id="user" style="width: 100px;">
+                                           <a href="@Url.Action("Information", "Customer", new {id = customer.id})"><i class="fa fa-user" aria-hidden="true"></i></a>                                        <ul class="sub-menu">
+                                               <li>
+                                                   <a id="web" href="@Url.Action("Information", "Customer", new {@id = customer.id})">Thông tin cá nhân</a>
+                                               </li>
+                                               <li>
+                                                   <a id="app" href="@Url.Action("product_history", "Customer", new {@id = customer.id})">Lịch sử giao dịch</a>
+                                               </li>
+                                               <li>
+                                                   <a id="game" href="@Url.Action("Category", "Home")">Đăng xuất</a>
+                                               </li>
+                                           </ul>
+                                       </li>
                                     }
                                     else
                                     {
@@ -113,6 +135,7 @@
             $().UItoTop({ easingType: 'easeOutQuart' });
             $('#stuck_container').tmStickUp({});
         });
+
     </script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -121,33 +144,37 @@
 </html>
 
 <style>
+ 
    .menu li#category{
        position:relative;
    }
     .sub-menu {
         position: absolute;
         list-style: none;
-        display: block;
-        opacity: 0;
+        display:none;
     }
-    #category:active .sub-menu {
+    #category:hover .sub-menu {
         display: block;
-        opacity: 1;
     }
+  
         .sub-menu li:hover a {
             color: #fff;
         }
-    #web:hover {
-        border-top-left-radius: 7px;
-        border-top-right-radius: 7px;
+    #web:hover, #app:hover, #game:hover, #database:hover {
         color: white;
     }
-    #app:hover, #game:hover {
-        color:white;
+    .menu #search {
+        display: flex;
+        margin: 7.5px 0px;
+        justify-content: center;
     }
-    #database:hover {
-        border-bottom-left-radius: 7px;
-        border-bottom-right-radius: 7px;
-        color: white;
+    #search_box {
+        margin: 1.68px 0px;
+        background: #fff;
+    }
+    #search_text {
+        border: none;
+        outline: none;
+        height: 28px;
     }
 </style>

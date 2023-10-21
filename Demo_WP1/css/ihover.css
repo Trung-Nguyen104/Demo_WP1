@@ -25,13 +25,14 @@
   height: 100%;
 }
 
-.ih-item.circle {
-  position: relative;
-  width: 269px;
-  height: 269px;
-  box-shadow: none !important;
-  border-radius: 50%;
-}
+    .ih-item.circle {
+        position: relative;
+        width: 269px;
+        height: 269px;
+        box-shadow: none !important;
+        border-radius: 50%;
+        display: inline-block;
+    }
 .ih-item.circle .img {
   position: relative;
   width: 269px;

@@ -1,115 +1,280 @@
-﻿
+﻿@model PagedList.IPagedList<Demo_WP1.Models.project>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "getAllProject";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    int i = 1;
+    var selected = "selected";
+    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
 }
 
-<h2>All Projects</h2>
+<div id="all_projects_title">
+    <h2>Web Projects</h2>
+    @using (Html.BeginForm("getAllProject", "Project", FormMethod.Get, new { @class = "form-inline" }))
+    {
+        <div class="select_category">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <select name="category" class="form-control">
+                        <option value="">Category</option>
+                        <option value="Web" @if (ViewBag.category == "Web")
+                        { @selected }>Web</option>
+                        <option value="Game" @if (ViewBag.category == "Game")
+                        { @selected }>Game</option>
+                        <option value="App" @if (ViewBag.category == "App")
+                        { @selected }>App</option>
+                        <option value="Data" @if (ViewBag.category == "Data")
+                        { @selected }>Database</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <select name="category" class="form-control">
+                        <option value="">Order by</option>
+                        <option value="Name" @if (ViewBag.type == "name")
+                        { @selected }>Name</option>
+                        <option value="Price" @if (ViewBag.type == "price")
+                        { @selected }>Price</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    }
+    </div>
 
-<div>
-    <table class="all_projects">
-        <tr class="row_title">
-            <td class="title"></td>
-            <td class="title">Name</td>
-            <td class="title">Layout</td>
-            <td class="title">Description</td>
-            <td class="title">Category</td>
-            <td class="title">Price</td>
-            <td class="title">Publish date</td>
-            <td class="title"></td>
-        </tr>
-        @foreach (var project in Model)
+
+<div class="content">
+    <hr />
+    <table id="projects">
+
+        @for (var k = 0; k < Model.Count; k += 2)
         {
-            <tr class="row_content">
-                <td class="content">@i</td>
-                <td class="content">@project.name</td>
-                <td class="content"></td>
-                <td class="content">@project.description</td>
-                <td class="content">@project.category</td>
-                <td class="content">@project.price</td>
-                <td class="content">@project.publish_date</td>
-                <td class="content">
-                    <a href="@Url.Action("Detail", "Project", new {id = project.id})">
-                        <button>More detail...</button>
-                    </a>
+            <tr id="2_projects">
+                <td id="first_project">
+                    <div class="project_head">
+                        <p>@Model[k].name</p>
+                    </div>
+                    <div class="project_body">
+                        <div class="project_info">
+                            <p id="publish_date">@Model[k].publish_date</p>
+                            <p id="description">@Model[k].description</p>
+                            <div class="project_sub_body">
+                                <div class="like_and_comment">
+                                    <i id="no-like" class="fa-regular fa-thumbs-up" style="color: #202124;"></i>
+                                    <i id="like" class="fa-solid fa-thumbs-up" style="color: #202124;"></i>
+                                    <p>
+
+                                    </p>
+                                </div>
+                                <p id="price">@string.Format(culture, "{0:C}", @Model[k].price)</p>
+                            </div>
+                        </div>
+                        <div class="project_image">
+                            <img src="@Model[k].image" style="height:200px; width:200px;" />
+                        </div>
+                    </div>
+                    <p style=" height: 3px; position: absolute; background-color: dodgerblue; width: 200px; bottom: 0; left:50%; transform:translateX(-50%)"></p>
+                </td>
+                <td id="second_project">
+                    @if ((k + 1) < Model.Count)
+                    {
+                        <div class="project_head">
+                            <p>@Model[k + 1].name</p>
+                        </div>
+                        <div class="project_body">
+                            <div class="project_info">
+                                <p id="publish_date">@Model[k + 1].publish_date</p>
+                                <p id="description">@Model[k + 1].description</p>
+                                <div class="project_sub_body">
+                                    <div class="like_and_comment">
+                                        <img id="like" src="~/images/like.png" />
+                                        <img id="comment" src="~/images/comment.png" />
+                                    </div>
+                                    <p id="price">@string.Format(culture, "{0:C}", @Model[k + 1].price)</p>
+                                </div>
+                            </div>
+                            <div class="project_image">
+                                <img src="@Model[k+1].image" style="height:200px; width:200px;" />
+                            </div>
+                        </div>
+                        <p style=" height: 3px; position: absolute; background-color: dodgerblue; width: 200px; bottom: 0; left:50%; transform:translateX(-50%)"></p>
+                    }
                 </td>
             </tr>
-            i++;
         }
     </table>
+
+    <div id="current_page">
+        <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6" style="text-align:right">
+            Page: @(Model.PageCount < Model.PageNumber ?0 :Model.PageNumber)/@Model.PageCount
+        </div>
+    </div>
+    <div id="total_page">
+        @Html.PagedListPager(Model, page => Url.Action("getAllProject", new { category = ViewBag.category, type = ViewBag.type, key = ViewBag.key, size = ViewBag.currentSize, page }))
+    </div>
 </div>
+
 <style>
-    .all_projects {
+    #all_projects_title {
+        position: relative;
         width: 100%;
-        border-collapse: collapse;
+        height: 200px;
     }
 
-    .row_title {
-        background: linear-gradient(to bottom, #3498db, #2980b9);
-        color: #fff;
-        transition: all 0.3s;
-    }
-
-        .row_title:hover {
-            background: linear-gradient(to bottom, #e74c3c, #c0392b);
-            color: #fff;
-            transform: scale(1.05);
+        #all_projects_title h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%)
         }
 
-        .row_title td {
-            padding: 15px;
-            font-weight: bold;
-            text-align: center;
+        #all_projects_title .select_category {
+            position: absolute;
+            bottom: 0;
+            right: 5%;
+            height: 20px;
+            width: 100px;
         }
 
-    .row_content {
-        background: linear-gradient(to bottom, #ecf0f1, #bdc3c7);
-        transition: all 0.3s;
-    }
-
-        .row_content:hover {
-            background: linear-gradient(to bottom, #d2d7d3, #95a5a6);
-            transform: scale(1.03);
-        }
-
-        .row_content td {
-            padding: 15px;
-            text-align: center;
-        }
-
-    .content a {
-        text-decoration: none;
-        color: #3498db;
-        transition: color 0.3s;
-    }
-
-        .content a:hover {
-            color: #e74c3c;
-        }
-
-    .content button {
-        background: linear-gradient(to bottom, #3498db, #2980b9);
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-
-        .content button:hover {
-            background: linear-gradient(to bottom, #e74c3c, #c0392b);
-        }
-
-    h2 {
-        background: linear-gradient(to bottom, #9b59b6, #8e44ad);
-        color: #fff;
-        padding: 10px;
+    .project_head p {
         text-align: center;
-        transition: background 0.3s;
+        padding: 30px 0px;
+        font-size: 25px;
+        color: #ff00d6;
+        font-weight: 600;
     }
 
-        h2:hover {
-            background: linear-gradient(to bottom, #e74c3c, #c0392b);
+    .project_body p#publish_date {
+        text-align: center;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    .project_body {
+        display: flex;
+    }
+
+    .project_sub_body {
+        display: flex;
+    }
+
+        .project_sub_body .like_and_comment {
+            flex: 1;
+            position: relative;
+        }
+
+    .like_and_comment img , #like, #no-like{
+        height: 30px;
+        width: 30px;
+        position: absolute;
+    }
+
+    #like, #no-like{
+        top: 50%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+    }
+
+    #comment {
+        top: 50%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+    }
+
+    .project_sub_body #price {
+        text-align: center;
+        margin: 20px 0px;
+        font-size: 16px;
+        border: 2px solid green;
+        border-radius: 8px;
+        display: inline-block;
+        color: #fff;
+        background-color: green;
+        font-weight: 700;
+        flex: 1;
+        padding: 22px 0px;
+    }
+
+    .project_info {
+        flex: 1;
+    }
+
+        .project_info #description {
+            text-align: justify;
+            margin-top: 15px;
+            font-size: 18px;
+            text-indent: 50px;
+        }
+
+    .project_image {
+        flex: 1;
+        text-align: center;
+    }
+
+        .project_image img {
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+    #first_project, #second_project {
+        padding: 20px 0px;
+        position: relative;
+        max-width:725px;
+    }
+    #current_page {
+        text-align: right;
+        font-size: 20px;
+        font-weight: 500;
+        margin: 50px 0px;
+    }
+    .pagination-container {
+        position: relative;
+        height: 30px;
+    }
+
+        .pagination {
+            display: inline-flex;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+            .pagination li {
+                align-items: center;
+                height: 30px;
+                width: 30px;
+                font-size: 16px;
+                background-color: yellow;
+                font-weight: 600;
+                color: #202124;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                border: 1px solid black;
+                border-radius: 50%;
+                margin: 0px 10px;
+            }
+                .pagination li:hover {
+                    color: yellow;
+                    background-color: black;
+                    transform: scale(1.2); 
+                    transition: transform 0.3s; 
+                }
+            .pagination .active {
+                color: yellow;
+                background-color: black;
+            }
+    #like, #no-like{
+        font-size: 24px; /* Kích thước mặc định của icon */
+    }
+    #like {
+        visibility: hidden;
+    }
+
+        #no-like:hover {
+            visibility:hidden;
+        }
+        #no-like:hover + #like{
+            visibility:visible;
+            font-size:32px;
         }
 </style>

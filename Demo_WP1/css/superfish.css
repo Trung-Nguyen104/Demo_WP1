@@ -3,7 +3,7 @@
 	z-index: 999;
 	position: relative;
 	float: right;
-	margin: 37.5px 0px;	
+	padding: 27.5px 0px;
 }
 
 .select-menu {
@@ -27,7 +27,7 @@ nav {
 }
 
 .menu>li+li {
-	margin-left: 36px;
+	margin: 0px 18px;
 }
 
 .menu>li {
@@ -41,16 +41,15 @@ nav {
     box-sizing: border-box;
 }
 
-.menu>li>a{
-	position: relative;
-	color: #fff; 
-	font-size:25px;
-	font-weight: 300;
-	display: block;
-	padding:10px;
-	border-radius:8px;
-	text-align: center;
-}
+	.menu > li > a {
+		position: relative;
+		color: #fff;
+		font-size: 25px;
+		font-weight: 300;
+		display: block;
+		padding: 10px;
+		text-align: center;
+	}
 
 
 .menu > li.sfHover > a, .menu > li.current > a, .menu > li > a:hover {
@@ -97,9 +96,8 @@ nav {
 		box-shadow: 0 0 2px #202124;
 		z-index: 999;
 		width: 100%;
-		border-radius: 8px;
 		background-color: #343434;
-		top: 45px;
+		top: 40px;
 		background: #fff url(../images/sub_bg.png) 0 0 repeat-x;
 	}
 

@@ -24,6 +24,6 @@ namespace Demo_WP1.Controllers
         public ActionResult Contacts() {
             Session["PageTitle"] = "Contacts";
             return View();
-        }   
+        }
     }
 }

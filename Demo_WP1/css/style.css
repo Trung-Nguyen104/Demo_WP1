@@ -46,9 +46,6 @@ address {
     font-style: normal;
 }
 
-p {
-    margin-bottom: 20px;
-}
 
 input, textarea {
     border-radius: 0 !important;
@@ -57,7 +54,7 @@ input, textarea {
 
 
 img {
-    height: auto;
+    height: 100px;
     width: 100px;
 }
 
@@ -73,10 +70,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-    padding-top: 100px;
     font-size: 72px;
     line-height: 72px;
-    margin-bottom: 22px;
 }
 
 h3 {
@@ -89,7 +84,8 @@ h3 {
 .page1 h3 {
     text-align: center;
     padding-top: 40px;
-    margin-bottom:25px;
+    margin-bottom: 25px;
+    margin-top: 100px;
 }
 
 .page1 h3.head1 {
@@ -245,11 +241,12 @@ a:hover {
 
 .page1 .img_inner {
     margin-top: 7px;
+    width:170px;
+    height:139px;
 }
 
 .fleft {
     float: left;
-    width: auto !important;
     margin-right: 30px;
     margin-bottom: 0px;
 }
@@ -309,7 +306,6 @@ header h1 {
     text-align: center;
     z-index: 990;
     float: left;
-    margin: 10px 0px;
 }
 
 
@@ -326,14 +322,12 @@ header h1 a {
 
 header h1 a img {
     display: block;
-    margin: 10px 0px;
 }
 
 
 /****Content****/
 
 .content {
-    padding-bottom: 70px;
 }
 
 .page1 .content {
@@ -577,58 +571,6 @@ header h1 a img {
 }
 
 
-/*******Search******/
-
-#search {
-    position: relative;
-    padding-top: 6px;
-}
-
-#search+h3 {
-    padding-top: 41px;
-    margin-bottom: 17px;
-}
-
-#search .rel {
-    position: relative;
-}
-
-#search label {
-    display: block;
-}
-
-#search input {
-     width: 100%;
-     height: 47px;
-     padding: 13px 55px 14px 20px;
-     font: 14px/20px 'Open Sans', sans-serif;
-     color: #383636;
-     border: 1px solid #d1caca;
-     box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-box-sizing: border-box; /*Firefox 1-3*/
-    -webkit-box-sizing: border-box; /* Safari */
-}
-
-
-
-
-#search a
- {
-    display: block;
-    position: absolute;
-    background: url(../images/search_icon.png) center center no-repeat;
-    width: 64px;
-    height: 47px;
-    right: 0;
-    top: 0;
-    cursor: pointer;
-}
-
-#search a:hover
-{
-    opacity: 0.5;
-}
 
 
 

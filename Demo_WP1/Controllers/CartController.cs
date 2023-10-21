@@ -112,7 +112,6 @@ namespace Demo_WP1.Controllers
             sendMail = sendMail.Replace("{{NgayDatHang}}", b.date.ToString());
             sendMail = sendMail.Replace("{{SanPham}}", strProject);
             sendMail = sendMail.Replace("{{Phone}}", c.phone);
-            sendMail = sendMail.Replace("{{DiaChi}}", c.address);
             sendMail = sendMail.Replace("{{Email}}", c.email);
             sendMail = sendMail.Replace("{{TongTien}}", totalMoney.ToString());
             Demo_WP1.Common.Common.SendMail("Thông báo đơn hàng", "Từ: LQT", sendMail, c.email);
